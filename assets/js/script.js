@@ -56,21 +56,20 @@ const container = document.querySelector('.team-container');
 
 
 // ciclo che stampa tutti gli elementi dell'array
-for (let i = 0; i < members.length; i++) {
-    generateCard(members[i].name, members[i].role, members[i].image);
-    console.log()
-}
+    for (let i = 0; i < members.length; i++) {
+        generateCard(members[i].name, members[i].role, members[i].image);
+    }
 
 //funzione che crea le card
 function generateCard(name, role, image) {
     let card = `          
     <div class="col-lg-3 col-md-6">
                 <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="pic"><img src="${image}" class="img-fluid"
+                    <div id="image" class="pic"><img src="${image}" class="img-fluid"
                             alt="${name}"></div>
                     <div class="member-info">
-                        <h4>${name}</h4>
-                        <span>${role}</span>
+                        <h4 id="name">${name}</h4>
+                        <span id="role">${role}</span>
                         <div class="social">
                             <a href=""><i class="fa-brands fa-twitter"></i></a>
                             <a href=""><i class="fa-brands fa-facebook"></i></a>
@@ -79,7 +78,32 @@ function generateCard(name, role, image) {
                         </div>
                     </div>
                 </div>
-            </div>`;
+            </div>
+            `;
 
     container.innerHTML += card;
 };
+
+// funzione che crea nuove card e aggiunge oggetti all'array
+const btnAdd = document.querySelector('#addMemberButton');
+
+btnAdd.addEventListener('click', function() {
+
+    let inputName = document.querySelector('#name');
+    let inputRole = document.querySelector('#role');
+    let inputImage = document.querySelector('#image');
+
+    const newMember = {    
+        name: inputName.value,
+        role: inputRole.value,
+        image: inputImage.value
+    }
+
+    members.push(newMember);
+
+    generateCard(inputName.value, inputRole.value, inputImage.value);
+    
+    inputName.value = '';
+    inputRole.value = '';
+    inputImage.value = '';
+});
