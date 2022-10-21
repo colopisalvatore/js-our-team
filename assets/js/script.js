@@ -18,41 +18,42 @@ const members = [
     {
         name: 'Wayne Barnett',
         role: 'Founder & CEO',
-        image: 'assets/img/team/wayne-barnett-founder-ceo.jpg'
+        image: 'wayne-barnett-founder-ceo.jpg'
     },
 
     {
         name: 'Angela Caroll',
         role: 'Chief Editor',
-        image: 'assets/img/team/angela-caroll-chief-editor.jpg'
+        image: 'angela-caroll-chief-editor.jpg'
     },
 
     {
         name: 'Angela Lopez',
         role: 'Social Media Manager',
-        image: 'assets/img/team/angela-lopez-social-media-manager.jpg'
+        image: 'angela-lopez-social-media-manager.jpg'
     },
 
     {
         name: 'Barbara Ramos',
         role: 'Graphic Designer',
-        image: 'assets/img/team/barbara-ramos-graphic-designer.jpg'
+        image: 'barbara-ramos-graphic-designer.jpg'
     },
 
     {
         name: 'Scott Estrada',
         role: 'Developer',
-        image: 'assets/img/team/scott-estrada-developer.jpg'
+        image: 'scott-estrada-developer.jpg'
     },
 
     {
         name: 'Walter Gordon',
         role: 'Office Manager',
-        image: 'assets/img/team/walter-gordon-office-manager.jpg'
+        image: 'walter-gordon-office-manager.jpg'
     },
 
 ]
 const container = document.querySelector('.team-container');
+const imagePath = 'assets/img/team/';
 
 
 // ciclo che stampa tutti gli elementi dell'array
@@ -65,7 +66,7 @@ function generateCard(name, role, image) {
     let card = `          
     <div class="col-lg-3 col-md-6">
                 <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                    <div id="image" class="pic"><img src="${image}" class="img-fluid"
+                    <div id="image" class="pic"><img src="${imagePath}${image}" class="img-fluid"
                             alt="${name}"></div>
                     <div class="member-info">
                         <h4 id="name">${name}</h4>
